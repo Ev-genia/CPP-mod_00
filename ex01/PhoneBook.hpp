@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlarra <mlarra@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/29 22:48:37 by mlarra            #+#    #+#             */
-/*   Updated: 2022/10/01 11:40:39 by mlarra           ###   ########.fr       */
+/*   Created: 2022/09/30 16:03:06 by mlarra            #+#    #+#             */
+/*   Updated: 2022/10/04 15:08:53 by mlarra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
+#include "Contact.hpp"
 
-int main(int argc, char **argv)
+
+# include <iostream>
+# include <string.h>
+# include <iomanip>
+
+class PhoneBook
 {
-	int	i;
-	int	j;
+private:
+	Contact	contact[8];
+	int		countContact;
+	void	viewContacts() const;
+	void	viewFullInfo(Contact contact) const;
+	void	getNumContact() const;
+public:
+	PhoneBook();
+	~PhoneBook();
+	void	getMenu();
+	void	addContact();
+	void	searchContact() const;
+};
 
-	if (argc == 1)
-	{
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-		return (1);
-	}
-	i = 1;
-	while (i < argc)
-	{
-		j = 0;
-		while (argv[i][j] != '\0')
-		{
-			std::cout << (char)toupper(argv[i][j]);
-			j++;
-		}
-		i++;
-	}
-	std::cout << std::endl;
-	return (0);
-}
+#endif
