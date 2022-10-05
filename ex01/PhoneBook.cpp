@@ -6,7 +6,7 @@
 /*   By: mlarra <mlarra@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 16:07:15 by mlarra            #+#    #+#             */
-/*   Updated: 2022/10/04 16:29:08 by mlarra           ###   ########.fr       */
+/*   Updated: 2022/10/05 17:32:02 by mlarra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,18 +83,26 @@ void	PhoneBook::getMenu(void)
 
 void	PhoneBook::addContact(void)
 {
-	if (this->countContact == 8)
-	{
-		std::cout << "PhoneBook is full" << std::endl;
-		return ;
-	}
 	std::cout << "Add contact" << std::endl;
-	this->contact[countContact].setData();
-	if (this->contact[countContact].isEmptyContact())
+	if (this->countContact == 8 || this->countContact == 0)
 	{
-		std::cout << "Warning! You enter empty contact" << std::endl;
-		this->contact[countContact] = Contact();
-		return ;
+		this->contact[0].setData();
+		if (this->contact[0].isEmptyContact())
+		{
+			std::cout << "Warning! You enter empty contact" << std::endl;
+			this->contact[0] = Contact();
+			this->countContact--;
+		}
+	}
+	else
+	{
+		this->contact[countContact].setData();
+		if (this->contact[countContact].isEmptyContact())
+		{
+			std::cout << "Warning! You enter empty contact" << std::endl;
+			this->contact[countContact] = Contact();
+			this->countContact--;
+		}
 	}
 	this->countContact++;
 	std::cout << "Count contact: " << this->countContact << std::endl;
