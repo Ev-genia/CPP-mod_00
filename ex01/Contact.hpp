@@ -6,7 +6,7 @@
 /*   By: mlarra <mlarra@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 16:03:15 by mlarra            #+#    #+#             */
-/*   Updated: 2022/10/04 16:31:33 by mlarra           ###   ########.fr       */
+/*   Updated: 2022/10/05 15:13:35 by mlarra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 class Contact
 {
 private:
-	// int			index;
 	std::string	firstName;
 	std::string	lastName;
 	std::string	nickName;
